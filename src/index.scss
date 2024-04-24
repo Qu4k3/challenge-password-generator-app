@@ -1,4 +1,4 @@
-@use 'styles/variables';
+@use 'styles/variables' as v;
 
 * {
   padding: 0;
@@ -9,13 +9,13 @@
 body {
   min-height: 100vh;
   width: 100%;
-  font-family: variables.$font-family;
+  font-family: v.$font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 500;
-  background-color: variables.$color-bg;
-  color: variables.$color-white;
+  background-color: v.$color-bg;
+  color: v.$color-white;
   display: grid;
   place-items: center;
-  font-size: variables.$font-size;
+  font-size: v.$font-size;
 }

@@ -1,8 +1,9 @@
-@use 'styles/variables';
+@use 'styles/variables' as v;
 @use 'styles/input-range';
 
 body {
   padding: 20px;
+
   .password-generator {
     width: 550px;
 
@@ -14,11 +15,11 @@ body {
       h1 {
         text-align: center;
         font-size: 1.5rem;
-        color: variables.$color-white-bis;
-      }      
-    
+        color: v.$color-white-bis;
+      }
+
       .block {
-        background-color: variables.$color-bg-block;
+        background-color: v.$color-bg-block;
         padding: 25px 30px;
         position: relative;
 
@@ -28,17 +29,44 @@ body {
           border: none;
           background-color: transparent;
           font-size: 32px;
-          color: variables.$color-white-bis;
-          opacity: .5;
+          color: v.$color-white;
           font-weight: 900;
+
+          &:placeholder-shown {
+            color: v.$color-white-bis;
+            opacity: .5;
+          }
         }
 
         .copy {
           position: absolute;
           right: 30px;
-          margin-top: 5px;
-          font-size: 24px;
-          color: variables.$color-primary;
+          top: 30px;
+          color: v.$color-primary;
+          cursor: pointer;
+          transition: .3s;
+
+          .tooltip {
+            display: none;
+            position: absolute;
+            top: -23px;
+            text-wrap: nowrap;
+            font-size: 14px;
+            transform: translateX(calc(-50% + 15px));
+            color: v.$color-white;
+          }
+
+          svg {
+            font-size: 24px;
+          }
+
+          &:hover {
+            color: v.$color-white;
+
+            & .tooltip {
+              display: block;
+            }
+          }
         }
       }
 
@@ -57,7 +85,7 @@ body {
           }
 
           span {
-            color: variables.$color-primary;
+            color: v.$color-primary;
             font-size: 2rem;
           }
         }
@@ -88,8 +116,9 @@ body {
               &:checked {
                 ~ {
                   .checkmark {
-                    background-color: variables.$color-primary;
-                    outline-color: variables.$color-primary;
+                    background-color: v.$color-primary;
+                    outline-color: v.$color-primary;
+
                     &:after {
                       display: block;
                     }
@@ -97,18 +126,20 @@ body {
                 }
               }
             }
+
             &:hover {
               input {
                 ~ {
                   .checkmark {
-                    outline-color: variables.$color-primary;
+                    outline-color: v.$color-primary;
                   }
                 }
               }
             }
+
             .checkmark {
-              outline: 2px solid variables.$color-white;
-              background-color: variables.$color-bg-block;
+              outline: 2px solid v.$color-white;
+              background-color: v.$color-bg-block;
               height: 15px;
               width: 15px;
 
@@ -117,7 +148,7 @@ body {
                 top: 0px;
                 width: 3px;
                 height: 10px;
-                border: solid variables.$color-bg;
+                border: solid v.$color-bg;
                 border-width: 0 3px 3px 0;
                 -webkit-transform: rotate(45deg);
                 -ms-transform: rotate(45deg);
@@ -129,10 +160,11 @@ body {
           .checkmark {
             position: absolute;
             top: 0;
-            left: 0;
+            left: 2px;
             height: 25px;
             width: 25px;
             background-color: #eee;
+
             &:after {
               content: "";
               position: absolute;
@@ -145,16 +177,16 @@ body {
           display: flex;
           justify-content: space-between;
           text-transform: uppercase;
-          background-color: variables.$color-bg;
+          background-color: v.$color-bg;
           padding: 25px;
           font-size: 18px;
-          color: variables.$color-white-bis;
+          color: v.$color-white-bis;
 
           div {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-content: center;  
+            align-content: center;
           }
 
           ul {
@@ -165,11 +197,11 @@ body {
             span {
               display: flex;
               flex-direction: column;
-            justify-content: center;
-            align-content: center; 
-            font-size: 22px;
-            color: variables.$color-white;
-            margin-right:10px;
+              justify-content: center;
+              align-content: center;
+              font-size: 22px;
+              color: v.$color-white;
+              margin-right: 10px;
             }
 
             li {
@@ -180,37 +212,35 @@ body {
         }
 
         button {
-          background-color: variables.$color-primary;
+          background-color: v.$color-primary;
           border: none;
           padding: 20px;
           display: flex;
           justify-content: center;
-          align-content: center;  
+          align-items: center;
           gap: 30px;
           transition: .2s;
-          
+          cursor: pointer;
+
           span {
             text-transform: uppercase;
             font-weight: 900;
             font-size: 18px;
           }
 
-          div { // corregir
-            display: flex;
-            justify-content: center;
-            align-content: center; 
-            flex-direction: column;
+          svg {
             font-size: 14px;
+            margin-bottom: 2px;
           }
 
           &:hover {
-            background-color: variables.$color-bg-block;
-            outline: 2px solid variables.$color-primary;
-            color: variables.$color-primary;
+            background-color: v.$color-bg-block;
+            outline: 2px solid v.$color-primary;
+            color: v.$color-primary;
           }
         }
       }
-    } 
+    }
   }
 
 }
