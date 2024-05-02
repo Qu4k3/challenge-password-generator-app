@@ -202,11 +202,41 @@ body {
               font-size: 22px;
               color: v.$color-white;
               margin-right: 10px;
+              // prevent visual jump
+              position: absolute;
+              right: 125px;
             }
 
             li {
               outline: 2px solid #fff;
               padding: 12px 3px;
+            }
+
+            &[data-strength='1'], &[data-strength='2'] {
+              li {  
+                &.active {
+                  background-color: v.$color-security-low;
+                outline-color: v.$color-security-low;
+                }
+              }
+            }
+
+            &[data-strength='3'] {
+              li {  
+                &.active {
+                  background-color: v.$color-security-medium;
+                outline-color: v.$color-security-medium;
+                }
+              }
+            }
+
+            &[data-strength='4'] {
+              li {  
+                &.active {
+                  background-color: v.$color-security-hard;
+                outline-color: v.$color-security-hard;
+                }
+              }
             }
           }
         }
